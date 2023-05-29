@@ -1107,7 +1107,7 @@ spec:
             - name: CONCOURSE_LDAP_BIND_PW
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.concourse.web.auth.ldap.bindPwSecret | quote }}
+                  name: {{ template "concourse.web.fullname" . }}
                   key: bindPw
             {{- end }}
             {{- if .Values.concourse.web.auth.ldap.useCaCert }}
